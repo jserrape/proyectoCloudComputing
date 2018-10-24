@@ -1,6 +1,8 @@
-# proyectoCloudComputing
+## proyectoCloudComputing
 
-## Proyecto de Cloud Computing Master Ingenieria Informática UGR
+Proyecto de la asignatura Cloud Computing del Máster de Ingeniería Informática de Granada.
+
+En el siguiente enlace se detallarán aspectos del proyecto: https://xenahort.github.io/
 
 ***
 
