@@ -6,7 +6,7 @@
 [![Language](https://img.shields.io/badge/language-Android-green.svg)](https://developer.android.com/?hl=es-419)
 
 
-## ProyectoCloudComputing
+# ProyectoCloudComputing
 
 Proyecto de la asignatura Cloud Computing del Máster de Ingeniería Informática de Granada.
 
@@ -14,22 +14,13 @@ A lo largo del desarrollo del proyecto, se actualizará la web de la aplicación
 
 ***
 
-### Descripción del problema
+## Descripción del problema
 
 Actualmente un gran riesgo que sufren los ancianos es el de caidas que pueden provocar diferenes lesiones que les impidan volver a ponerse en pie. Se va a desarrollar un software portétil capaz de detectar caídas y notificar a los servicios pertinentes.
 
 ***
 
-### Descripción del proyecto
-
-El proyecto inicialmente estará formado por:
-1. Un servidor Python.
-2. Una base de datos Mysql.
-3. Una aplicación cliente Android.
-
-***
-
-### Arquitectura
+## Arquitectura
 
 Una vez revisadas las distinas arquitecuras software se ha optado por el uso de una arquitecura basada en microservicios para el desarrollo y despliegue de cada funcionalidad de forma independiente. 
 
@@ -39,5 +30,11 @@ Una vez revisadas las distinas arquitecuras software se ha optado por el uso de 
 
 > Lo principal en una arquitectura de microservicios es que se trata de unidades que se van a desplegar de forma independiente, diferentes servicios que trabajarán de forma totalmente independiente unos de otros.
 
+El proyecto inicialmente estará formado por:
+1. Un servidor Python.
+1.1. Microservicio de registro y login
+1.2. Microservicio para la notificación a servicios de emergencias.
+1.3. Servicios de gestión de base de datos Mysql.
+2. Una aplicación cliente Android.
 
 ***
