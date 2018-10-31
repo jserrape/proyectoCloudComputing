@@ -3,7 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://github.com/xenahort/proyectoCloudComputing/blob/master/LICENSE)
 [![Language](https://img.shields.io/badge/language-Python-blue.svg)](https://www.python.org/)
 [![Language](https://img.shields.io/badge/language-MySQL-orange.svg)](https://www.mysql.com/)
-[![Language](https://img.shields.io/badge/language-Android-green.svg)](https://developer.android.com/?hl=es-419)
 
 
 # ProyectoCloudComputing
@@ -14,9 +13,19 @@ A lo largo del desarrollo del proyecto, se actualizará la web de la aplicación
 
 ***
 
-## Descripción del problema
+## Descripción de la situación actual
 
-Actualmente un gran riesgo que sufren los ancianos es el de caidas que pueden provocar diferenes lesiones que les impidan volver a ponerse en pie. Se va a desarrollar un software portétil capaz de detectar caídas y notificar a los servicios pertinentes.
+Últimamente estamos oyendo hablar mucho del **procesamiento del lenguaje natural** (PLN) y ahora más en este mundo digital. Sin embargo, el PLN es una disciplina que cuenta con más de 50 años de investigación y desarrollo.
+
+El Procesamiento del Lenguaje Natural es el campo de conocimiento de la **Inteligencia Artificial** que se ocupa de la investigar la manera de comunicar las máquinas con las personas mediante el uso de lenguas naturales, como el español, el inglés o el chino.
+
+Virtualmente, cualquier lengua humana puede ser tratada por los ordenadores. Lógicamente, limitaciones de interés económico o práctico hace que solo las lenguas más habladas o utilizadas en el mundo digital tengan aplicaciones en uso.
+
+***
+
+## Descripción general del proyecto que se va a realizar
+
+El objetivo del proyecto va a consistir en el desarrollo de una plataforma dedicada al procesamiento del lenguaje natural. La plataforma permitirá introducir comentarios para obtener con gran confianza si se tratan de comentarios positivos o negativos, análisis de oraciones, etc.
 
 ***
 
@@ -31,10 +40,11 @@ Una vez revisadas las distinas arquitecuras software se ha optado por el uso de 
 > Lo principal en una arquitectura de microservicios es que se trata de unidades que se van a desplegar de forma independiente, diferentes servicios que trabajarán de forma totalmente independiente unos de otros.
 
 El proyecto inicialmente estará formado por:
-1. Un servidor Python.
-1.1. Microservicio de registro y login
-1.2. Microservicio para la notificación a servicios de emergencias.
-1.3. Servicios de gestión de base de datos Mysql.
-2. Una aplicación cliente Android.
+1. Microservicio de registro y login
+2. Microservicio para el análisis de opiniones.
+3. Microservicio para el análisis sintáctico de oraciones.
+4. Servicios de gestión de base de datos Mysql.
 
+El desarrollo va a ser realizado en Python utilizando de forma inicial el microframework Flask, la librería nltk con múltiples corpus de texto aún por determinar y el analizardor de texto de Stanford.
+ 
 ***
