@@ -63,5 +63,22 @@ Ficheros de configuración la aplicación:
 	
 Microservicio desplegado:
 
+Para el presente hito se ha desarrollado en primer lugar el microservicio de análisis de opiniones destinado a analizar si es positiva o negativa. El microservicio comentado se encuentra en:
+
+	https://shielded-scrubland-22143.herokuapp.com/analize/{comentario}
+	
+Para el comentario "I love you." el sistema devolverá:
+
+	{'status': 'OK', 'ejemplo': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/analize/I%20love%20you.','valor': 'POSITIVE' }}
+	
+Mientras que para el comentario "I hate you." el sistema devolverá:
+
+	{'status': 'OK', 'ejemplo': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/analize/I%20hate%20you','valor': 'NEGATIVE' }}
+	
+En caso de tratar de acceder a una página que no existe o un error en el servidor, el sistema devolverá:
+
+	{ 'status': 'ERROR 404' } ó { 'status': 'ERROR 500' }
+	
+Finalmente se ha desarrollado la ruta https://shielded-scrubland-22143.herokuapp.com/about
 
 ***

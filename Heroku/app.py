@@ -115,9 +115,14 @@ def not_found(error):
 def not_found(error):
 	return "{ 'status': 'ERROR 404' }"
 
-#@app.route('/')
-#def index():
-#    return render_template('index.html', title = "Home")
+@app.route('/')
+def index():
+    return "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service dedicated to Natural Language Processing' }}"
+    #return render_template('index.html', title = "Home")
+
+@app.route('/about')
+def about():
+    return "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service developed by Juan Carlos Serrano Pérez, source code in https://github.com/xenahort/proyectoCloudComputing' }}"
 
 @app.route('/analize/<post_id>', methods=['GET', 'POST'])
 def form(post_id):
