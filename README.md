@@ -48,3 +48,20 @@ El proyecto inicialmente estará formado por:
 El desarrollo va a ser realizado en Python utilizando de forma inicial el microframework Flask, la librería nltk con múltiples corpus de texto aún por determinar y el analizardor de texto de Stanford.
  
 ***
+
+## Plataforma como servicio (en desarrollo)
+
+Para la elección de un PaaS se ha probado entre zeit.co y Heroku. Se ha optado por Heroku ya que permite gran cantidad de horas de cómputo gratuitas, soporte para multitud de lenguajes y [documentación](https://devcenter.heroku.com/) específica para construir, desplegar y gestionar las aplicaciones.
+
+	Despliegue: https://shielded-scrubland-22143.herokuapp.com/
+	
+Ficheros de configuración la aplicación:
+
+	requirements.txt: especifica las dependencias de Python necesarias para la ejecución de la aplicación.
+	Procfile: especifica los comandos ejecutados por la aplicación.
+	nltk.txt: especifica los distintos corpus de texto requeridos por la dependencia nltk.
+	
+Microservicio desplegado:
+
+
+***
