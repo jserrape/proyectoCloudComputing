@@ -50,7 +50,7 @@ El desarrollo va a ser realizado en Python utilizando de forma inicial el microf
  
 ***
 
-## Plataforma como servicio: Heroku (en desarrollo)
+## Plataforma como servicio: Heroku
 
 Para la elección de un PaaS se ha probado entre zeit.co y Heroku. Se ha optado por Heroku ya que permite gran cantidad de horas de cómputo gratuitas, soporte para multitud de lenguajes y [documentación](https://devcenter.heroku.com/) específica para construir, desplegar y gestionar las aplicaciones.
 
@@ -104,5 +104,9 @@ Inicializar el repositorio y subir los documentos:
 	$ git add .
 	$ git commit -am "Creada la aplicación"
 	$ git push heroku master
+	
+Para obtener un *registro* de los flujos de eventos de la aplicación:
+
+	$ heroku logs --tail
 
 ***
