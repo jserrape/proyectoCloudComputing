@@ -2,10 +2,11 @@
 [![Status](https://img.shields.io/badge/Status-Documenting-yellow.svg)](https://github.com/xenahort/proyectoCloudComputing/blob/master/README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://github.com/xenahort/proyectoCloudComputing/blob/master/LICENSE)
 [![Language](https://img.shields.io/badge/language-Python-blue.svg)](https://www.python.org/)
+[![Language](https://img.shields.io/badge/language-Flask-green.svg)](http://flask.pocoo.org/)
 [![Language](https://img.shields.io/badge/language-MySQL-orange.svg)](https://www.mysql.com/)
 
 
-# ProyectoCloudComputing
+# Proyecto de Cloud Computing
 
 Proyecto de la asignatura Cloud Computing del Máster de Ingeniería Informática de Granada.
 
@@ -49,7 +50,7 @@ El desarrollo va a ser realizado en Python utilizando de forma inicial el microf
  
 ***
 
-## Plataforma como servicio (en desarrollo)
+## Plataforma como servicio: Heroku (en desarrollo)
 
 Para la elección de un PaaS se ha probado entre zeit.co y Heroku. Se ha optado por Heroku ya que permite gran cantidad de horas de cómputo gratuitas, soporte para multitud de lenguajes y [documentación](https://devcenter.heroku.com/) específica para construir, desplegar y gestionar las aplicaciones.
 
@@ -61,7 +62,7 @@ Ficheros de configuración la aplicación:
 	Procfile: especifica los comandos ejecutados por la aplicación.
 	nltk.txt: especifica los distintos corpus de texto requeridos por la dependencia nltk.
 	
-Microservicio desplegado:
+**Microservicio desplegado:**
 
 Para el presente hito se ha desarrollado en primer lugar el microservicio de análisis de opiniones destinado a analizar si es positiva o negativa. El microservicio comentado se encuentra en:
 
@@ -80,5 +81,28 @@ En caso de tratar de acceder a una página que no existe o un error en el servid
 	{ 'status': 'ERROR 404' } ó { 'status': 'ERROR 500' }
 	
 Finalmente se ha desarrollado la ruta https://shielded-scrubland-22143.herokuapp.com/about
+
+### Despliegue en Heroku
+
+Para desplegar el servicio en Heroku, en primer lugar hay que iniciar sesión en Heroku:
+
+	$ heroku login
+	
+Descargar el repositorio y acceder al directorio 'Heroku':
+
+	$ git clone https://github.com/xenahort/proyectoCloudComputing
+	$ git cd proyectoCloudComputing/Heroku
+	
+Crear la aplicación en Heroku:
+
+	$ heroku create
+	
+Inicializar el repositorio y subir los documentos:
+
+	$ git init
+	$ heroku git:remote -a <nombre de la aplicación>
+	$ git add .
+	$ git commit -am "Creada la aplicación"
+	$ git push heroku master
 
 ***
