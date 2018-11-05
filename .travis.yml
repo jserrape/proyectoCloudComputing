@@ -3,9 +3,8 @@ python:
 - '3.5'
 install:
 - pip install -r requirements.txt
-- import nltk
-- nltk.download('punkt')
-- nltk.download('stopwords')
-- nltk.download('maxent_treebank_pos_tagger')
+- "python -m nltk.downloader punkt"
+- "python -m nltk.downloader stopwords"
+- "python -m nltk.downloader maxent_treebank_pos_tagger"
 script:
 - python test.py
