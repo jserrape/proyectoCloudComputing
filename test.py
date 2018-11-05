@@ -1,6 +1,7 @@
 import unittest
 import app
 
+
 class TestMyServer(unittest.TestCase):
 
     def test_first(self):

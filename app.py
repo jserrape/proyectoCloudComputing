@@ -117,7 +117,7 @@ def not_found(error):
 
 @app.route('/')
 def index():
-	resp = "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service dedicated to Natural Language Processing' }}"
+    resp = "{ 'status': 'OK', 'result': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/','valor': 'Service dedicated to Natural Language Processing' }}"
     return resp
 
 @app.route('/about')
