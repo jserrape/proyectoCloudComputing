@@ -117,8 +117,8 @@ def not_found(error):
 
 @app.route('/')
 def index():
-    return "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service dedicated to Natural Language Processing' }}"
-    #return render_template('index.html', title = "Home")
+	return "All it´s OK"
+    #return "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service dedicated to Natural Language Processing' }}"
 
 @app.route('/about')
 def about():
