@@ -127,8 +127,8 @@ def about():
 @app.route('/analize/<post_id>', methods=['GET', 'POST'])
 def form(post_id):
     resultado = analizar(post_id)
-    urr = request.url.replace(" ", "%20")
-    text = "{'status': 'OK', 'ejemplo': { 'ruta': '" + urr + "','valor': '" + resultado + "' }}"
+    urr = str(post_id).replace(" ", "%20")
+    text = "{'status': 'OK', 'ejemplo': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/analize/"+urr+"','valor': '" + resultado + "' }}"
     return text
 
 #@app.route('/analizar', methods=['GET', 'POST'])
