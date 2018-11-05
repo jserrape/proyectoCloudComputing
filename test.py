@@ -8,5 +8,9 @@ class TestMyServer(unittest.TestCase):
         response = app.index()
         self.assertIn('OK', response, "OK was not found in response")
 
+    def test_secondt(self):
+        response = app.about()
+        self.assertIn('OfK', response, "OfK was not found in response")
+
 if __name__ == '__main__':
     unittest.main()
