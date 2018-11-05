@@ -122,7 +122,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service developed by Juan Carlos Serrano Pérez, source code in https://github.com/xenahort/proyectoCloudComputing' }}"
+    return "{ 'status': 'OK', 'result': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/about/','valor': 'Service developed by Juan Carlos Serrano Pérez, source code in https://github.com/xenahort/proyectoCloudComputing' }}"
 
 @app.route('/analize/<post_id>', methods=['GET', 'POST'])
 def form(post_id):
