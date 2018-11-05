@@ -4,7 +4,7 @@ from flask import render_template
 from nltk.tokenize import TreebankWordTokenizer
 from nltk import WhitespaceTokenizer, SpaceTokenizer, WordPunctTokenizer, TreebankWordTokenizer
 
-import forms, io, nltk, sys, time, numpy
+import forms, io, nltk, sys, time, numpy, os
 
 
 app = Flask(__name__)
@@ -117,8 +117,8 @@ def not_found(error):
 
 @app.route('/')
 def index():
-	return "All it´s OK"
-    #return "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service dedicated to Natural Language Processing' }}"
+	resp = "{ 'status': 'OK', 'result': { 'ruta': '" + request.url + "','valor': 'Service dedicated to Natural Language Processing' }}"
+    return resp
 
 @app.route('/about')
 def about():
