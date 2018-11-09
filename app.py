@@ -1,10 +1,12 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask import Response
+import json
 from nltk.tokenize import TreebankWordTokenizer
 from nltk import WhitespaceTokenizer, SpaceTokenizer, WordPunctTokenizer, TreebankWordTokenizer
 
-import forms, io, nltk, sys, time, numpy, os
+import io, nltk, sys, time, numpy, os
 
 
 app = Flask(__name__)
@@ -38,8 +40,6 @@ def analizar(comentario):
     if(acumula == 0):
         return "NEUTRAL"
     return "<h1>Nunca llega</h1>"
-
-
 
 #Carga los ficheros de palabras positivas y negativas y devuelve un array con ellas
 def load_words(fichero):
@@ -107,41 +107,23 @@ def calcularValorPalabra2(tipo,positiva,Vfrase):
     return 0
 
 
-@app.errorhandler(500)
-def not_found(error):
-	return "{ 'status': 'ERROR 500' }"
-
 @app.errorhandler(404)
 def not_found(error):
-	return "{ 'status': 'ERROR 404' }"
+	return Response("{'status': 404}", status=404, mimetype='application/json')
 
 @app.route('/')
 def index():
-    resp = "{ 'status': 'OK', 'result': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/','valor': 'Service dedicated to Natural Language Processing' }}"
-    return resp
+    return Response("{'status': 'OK', 'ejemplo': { 'ruta': '/analize/I%20hate%20you','valor': '{'status': 'OK', 'ruta': '/analize/I%20hate%20you', 'valor': 'NEGATIVE'}'}", status=201, mimetype='application/json')
 
 @app.route('/about')
 def about():
-    return "{ 'status': 'OK', 'result': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/about','valor': 'Service developed by Juan Carlos Serrano Pérez, source code in https://github.com/xenahort/proyectoCloudComputing' }}"
+    return Response("{'status': 'OK', 'ruta': '/about', 'valor': 'Service developed by Juan Carlos Serrano Pérez, source code in https://github.com/xenahort/proyectoCloudComputing'}", status=201, mimetype='application/json')
 
 @app.route('/analize/<post_id>', methods=['GET', 'POST'])
 def form(post_id):
     resultado = analizar(post_id)
     urr = str(post_id).replace(" ", "%20")
-    text = "{'status': 'OK', 'ejemplo': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/analize/"+urr+"','valor': '" + resultado + "' }}"
-    return text
-
-#@app.route('/analizar', methods=['GET', 'POST'])
-#def formulario():
-#    comment_form = forms.FormularioComentario(request.form)
-#    resultado=''
-#    if request.method == 'POST':
-#        resultado = analizar(comment_form.comment.data)
-#    return render_template('templateOpinion.html', title = "Analyze opinion", form = comment_form, res=resultado)
-
-#@app.route('/about')
-#def about():
-#    return render_template('about.html', title = "About")
+    return Response("{'status': 'OK', 'ruta': '/analize/"+urr+"', 'valor': '"+resultado+"'}", status=201, mimetype='application/json')
 
 if __name__ == '__main__':
 	app.run(port = PORT, debug = DEBUG)
