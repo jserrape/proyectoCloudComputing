@@ -58,9 +58,10 @@ Para la elección de un PaaS se ha probado entre zeit.co y Heroku. Se ha optado 
 	
 Ficheros de configuración la aplicación:
 
-	requirements.txt: especifica las dependencias de Python necesarias para la ejecución de la aplicación.
-	Procfile: especifica los comandos ejecutados por la aplicación.
-	nltk.txt: especifica los distintos corpus de texto requeridos por la dependencia nltk.
+	requirements.txt: especifica las dependencias de Python necesarias, así como la versión para la ejecución de la aplicación.
+	Procfile: especifica los comandos que son ejecutados por los términos de la aplicación. Hace uso de gunicorn como servicio HTTP WSGI así como especifica el fichero principal de la aplicación.
+	nltk.txt: especifica los distintos corpus de texto requeridos por la dependencia nltk que deben ser instalados.
+	.travis: especifica datos para el servicio de test como el lenguaje y versión que se va a utilizar, comandos requeridos previos (instalación de librerias y ficheros) y los ficheros que implementan los tests.	
 	
 **Microservicio desplegado:**
 
