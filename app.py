@@ -1,12 +1,8 @@
-from flask import Flask
-from flask import request
-from flask import render_template
-from flask import Response
-import json
+from flask import Flask, jsonify, request, Response
 from nltk.tokenize import TreebankWordTokenizer
 from nltk import WhitespaceTokenizer, SpaceTokenizer, WordPunctTokenizer, TreebankWordTokenizer
 
-import io, nltk, sys, time, numpy, os
+import io, nltk, sys, time, numpy, os, json
 
 
 app = Flask(__name__)
@@ -39,7 +35,7 @@ def analizar(comentario):
         return "NEGATIVE"
     if(acumula == 0):
         return "NEUTRAL"
-    return "<h1>Nunca llega</h1>"
+    return "Nunca llega"
 
 #Carga los ficheros de palabras positivas y negativas y devuelve un array con ellas
 def load_words(fichero):
@@ -109,21 +105,48 @@ def calcularValorPalabra2(tipo,positiva,Vfrase):
 
 @app.errorhandler(404)
 def not_found(error):
-	return Response("{'status': 404}", status=404, mimetype='application/json')
+    respons = {}
+    respons['status'] = 404
+    respons = jsonify(respons)
+    respons.status_code = 404
+    return respons
 
 @app.route('/')
 def index():
-    return Response("{'status': 'OK', 'ejemplo': { 'ruta': '/analize/I%20hate%20you','valor': '{'status': 'OK', 'ruta': '/analize/I%20hate%20you', 'valor': 'NEGATIVE'}'}", status=201, mimetype='application/json')
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/'
+    ejemplo = {}
+    ejemplo['ruta'] = '/analize/I%20love%20you'
+    ejemplo['valor'] = '{"ruta":"/analize/I%20love%20you","status":"OK","valor":"POSITIVE"}'
+    respons['ejemplo'] = ejemplo
+    respons = jsonify(respons)
+    respons.status_code = 201
+    return respons
 
 @app.route('/about')
 def about():
-    return Response("{'status': 'OK', 'ruta': '/about', 'valor': 'Service developed by Juan Carlos Serrano Pérez, source code in https://github.com/xenahort/proyectoCloudComputing'}", status=201, mimetype='application/json')
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/about'
+    respons['valor'] = 'Service developed by Juan Carlos Serrano Perez, source code in https://github.com/xenahort/proyectoCloudComputing'
+    respons = jsonify(respons)
+    respons.status_code = 201
+    return respons
 
 @app.route('/analize/<post_id>', methods=['GET', 'POST'])
 def form(post_id):
     resultado = analizar(post_id)
     urr = str(post_id).replace(" ", "%20")
-    return Response("{'status': 'OK', 'ruta': '/analize/"+urr+"', 'valor': '"+resultado+"'}", status=201, mimetype='application/json')
+
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/analize/'+urr
+    respons['valor'] = resultado
+    respons = jsonify(respons)
+    respons.status_code = 201
+
+    return respons
 
 if __name__ == '__main__':
 	app.run(port = PORT, debug = DEBUG)
