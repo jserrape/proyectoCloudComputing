@@ -70,44 +70,35 @@ Para el presente hito se ha desarrollado en primer lugar el microservicio de an�
 	
 Para el comentario "I love you." el sistema devolverá:
 
-	{'status': 'OK', 'ejemplo': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/analize/I%20love%20you.','valor': 'POSITIVE' }}
+	{"ruta":"/analize/I%20love%20you","status":"OK","valor":"POSITIVE"}
 	
 Mientras que para el comentario "I hate you." el sistema devolverá:
 
-	{'status': 'OK', 'ejemplo': { 'ruta': 'https://shielded-scrubland-22143.herokuapp.com/analize/I%20hate%20you','valor': 'NEGATIVE' }}
+	{"ruta":"/analize/I%20hate%20you","status":"OK","valor":"NEGATIVE"}
 	
-En caso de tratar de acceder a una página que no existe o un error en el servidor, el sistema devolverá:
+En la ruta / del sistema se devolverá:
 
-	{ 'status': 'ERROR 404' } ó { 'status': 'ERROR 500' }
+{"ejemplo":{"ruta":"/analize/I%20love%20you","valor":"{\"ruta\":\"/analize/I%20love%20you\",\"status\":\"OK\",\"valor\":\"POSITIVE\"}"},"ruta":"/","status":"OK"}
+	
+En caso de tratar de acceder a una página que no existe el sistema devolverá:
+
+	{"status":404}
 	
 Finalmente se ha desarrollado la ruta https://shielded-scrubland-22143.herokuapp.com/about
 
-### Despliegue en Heroku
+### Tests
 
-Para desplegar el servicio en Heroku, en primer lugar hay que iniciar sesión en Heroku:
+Travis CI es un servicio de integración continua distribuido y alojado que se utiliza para crear y probar proyectos de software alojados en GitHub.
 
-	$ heroku login
-	
-Descargar el repositorio y acceder al directorio 'Heroku':
+Para el hito 2 se han implementado 11 tests para la comprobación de las distintas funciones del servicio. 
 
-	$ git clone https://github.com/xenahort/proyectoCloudComputing
-	$ git cd proyectoCloudComputing/Heroku
-	
-Crear la aplicación en Heroku:
+### Despliegue
 
-	$ heroku create
-	
-Inicializar el repositorio y subir los documentos:
+Para el despliegue, se ha realizado de forma que al hacer push a GitHub y tras pasar los tests de Travis-CI se sube de forma automática a Heroku.
 
-	$ git init
-	$ heroku git:remote -a <nombre de la aplicación>
-	$ git add .
-	$ git commit -am "Creada la aplicación"
-	$ git push heroku master
-	
-Para obtener un *registro* de los flujos de eventos de la aplicación:
+Esta configuración se realiza en el menú de la aplicación de Heroku, la opción 'Deploy', y en 'Deployment method'. Se debe enlazar con el proyecto de GitHub y activar el 'Automatic deploys from  master are enabled'.
 
-	$ heroku logs --tail
+![Despliegue](img/deploy.png)
 
 ***
 
