@@ -3,4 +3,4 @@ xenahort ansible_ssh_port=22 ansible_ssh_host=137.116.208.155
 
 [ubuntuserver:vars]
 ansible_ssh_user=xenahort
-ansible_ssh_private_key_file=./id_rsa
+ansible_ssh_private_key_file=~/ssh/key

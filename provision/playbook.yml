@@ -2,25 +2,13 @@
 - hosts: all
   become: yes
   vars:
-    project_path: /var/www/proyectoCloudComputing
+    project_path: ~/proyectoCloudComputing
   tasks:
-    - name: Configura algunas variables
-      set_fact:
-        release_path: "{{ project_path }}/releases/{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
-        current_path: "{{ project_path }}/current"
-    - name: Devuelve la carpeta de entrega actual
-      command: readlink -f current
-      register: current_release_path
-      ignore_errors: yes
-      args:
-        chdir: "{{ project_path }}"
-    - name: Crea una nueva carpeta
-      file:
-        dest={{ release_path }}
-        mode=0755
-        recurse=yes
-        state=directory
-    - name: Clona el repositorio
-      git:
-        repo: https://github.com/xenahort/proyectoCloudComputing.git
-        dest: "{{ release_path }}"
+    - name: Actualizaciones
+      apt: update_cache=yes
+
+    - name: Instalar git
+      apt: name=git state=present
+
+    - name: Instalar Python python3
+      apt: name=python3 state=present
