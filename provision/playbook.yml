@@ -21,3 +21,12 @@
 
     - name: Instalar fichero requirements 
       shell: "pip3 install -r ~/proyectoCloudComputing/requirements.txt"
+
+    - name: Descarga de corpus punkt
+      shell: "python3 -m nltk.downloader punkt"
+
+    - name: Descarga de corpus stopwords
+      shell: "python3 -m nltk.downloader stopwords"
+
+    - name: Descarga de corpus maxent_treebank_pos_tagger
+      shell: "python3 -m nltk.downloader maxent_treebank_pos_tagger"
