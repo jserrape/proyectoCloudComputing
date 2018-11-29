@@ -1,8 +1,6 @@
 ---
 - hosts: all
   become: yes
-  vars:
-    project_path: ~/proyectoCloudComputing
   tasks:
     - name: Actualizaciones
       apt: update_cache=yes
@@ -12,3 +10,14 @@
 
     - name: Instalar Python python3
       apt: name=python3 state=present
+
+    - name: Installing pip3
+      apt: name=python3-pip state=present
+
+    - name: Toca clinar el proyecto
+      git:
+        repo: https://github.com/xenahort/proyectoCloudComputing
+        dest: "~/proyectoCloudComputing"
+
+    - name: Instalar fichero requirements 
+      shell: "pip3 install -r ~/proyectoCloudComputing/requirements.txt"
