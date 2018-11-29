@@ -6,7 +6,7 @@ import io, nltk, sys, time, numpy, os, json
 
 
 app = Flask(__name__)
-PORT = 5000
+PORT = 80
 DEBUG = False
 
 #Otros
