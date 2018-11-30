@@ -89,6 +89,11 @@ Finalmente ha sido definido el fichero `/roles/common/tasks/main.yml` que indica
   shell: "python3 -m nltk.downloader maxent_treebank_pos_tagger"
 ```
 
-## Comprobación del proyecto de
+## Comprobación del proyecto de [gomezportillo](https://github.com/gomezportillo)
+
+Se ha comprobado el provisionamiento en una máquina virtual del proyecto [Apolo](https://github.com/gomezportillo/apolo). Para ello se han seguido los pasos indicados [aquí](https://github.com/gomezportillo/apolo/blob/master/provision/README.md) con la única modificación de los datos referentes a la máquina virtual como usuario y dirección ip.
+
+![Provisionamiento](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/apolo1.png)
+![Prueba](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/apolo2.png)
 
 ## Proyecto comprobado por
