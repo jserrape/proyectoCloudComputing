@@ -111,4 +111,11 @@ MV: 13.80.142.56
 
 La descripción completa correspondiente al provisionamiento mediante Ansible en Azure se encuentra [aquí](https://github.com/xenahort/proyectoCloudComputing/blob/master/provision/ansible/README.md)
 
+### Despliegue por Felipe Peiro
+
+El provisionamiento del servicio ha sido probado por [@fpeiro](https://github.com/fpeiro) verificando que las tareas se realizan
+correctamente. Se muestra una captura del resultado obtenido:
+
+![Despliegue-fpeiro](https://github.com/fpeiro/proyectoCloudComputing/blob/master/img/fpeiro-deploy.png)
+
 ***
