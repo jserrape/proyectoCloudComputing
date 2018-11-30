@@ -32,7 +32,7 @@ El objetivo del proyecto va a consistir en el desarrollo de una plataforma dedic
 
 ## Arquitectura
 
-Una vez revisadas las distinas arquitecuras software se ha optado por el uso de una arquitecura basada en microservicios para el desarrollo y despliegue de cada funcionalidad de forma independiente. 
+Una vez revisadas las distinas arquitecuras software se ha optado por el uso de una arquitecura basada en microservicios para el desarrollo y despliegue de cada funcionalidad de forma independiente.
 
 **¿Qué es un microservicio?**
 
@@ -47,7 +47,7 @@ El proyecto inicialmente estará formado por:
 4. Servicios de gestión de base de datos Mysql.
 
 El desarrollo va a ser realizado en Python utilizando de forma inicial el microframework Flask, la librería nltk con múltiples corpus de texto aún por determinar y el analizardor de texto de Stanford.
- 
+
 ***
 
 ## Plataforma como servicio: Heroku
@@ -55,43 +55,43 @@ El desarrollo va a ser realizado en Python utilizando de forma inicial el microf
 Para la elección de un PaaS se ha probado entre zeit.co y Heroku. Se ha optado por Heroku ya que permite gran cantidad de horas de cómputo gratuitas, soporte para multitud de lenguajes y [documentación](https://devcenter.heroku.com/) específica para construir, desplegar y gestionar las aplicaciones.
 
 	Despliegue: https://shielded-scrubland-22143.herokuapp.com/
-	
+
 Ficheros de configuración la aplicación:
 
 	requirements.txt: especifica las dependencias de Python necesarias, así como la versión para la ejecución de la aplicación.
 	Procfile: especifica los comandos que son ejecutados por los términos de la aplicación. Hace uso de gunicorn como servicio HTTP WSGI así como especifica el fichero principal de la aplicación.
 	nltk.txt: especifica los distintos corpus de texto requeridos por la dependencia nltk que deben ser instalados.
-	.travis: especifica datos para el servicio de test como el lenguaje y versión que se va a utilizar, comandos requeridos previos (instalación de librerias y ficheros) y los ficheros que implementan los tests.	
-	
+	.travis: especifica datos para el servicio de test como el lenguaje y versión que se va a utilizar, comandos requeridos previos (instalación de librerias y ficheros) y los ficheros que implementan los tests.
+
 **Microservicio desplegado:**
 
 Para el presente hito se ha desarrollado en primer lugar el microservicio de análisis de opiniones destinado a analizar si es positiva o negativa. El microservicio comentado se encuentra en:
 
 	https://shielded-scrubland-22143.herokuapp.com/analize/{comentario}
-	
+
 Para el comentario "I love you." el sistema devolverá:
 
 	{"ruta":"/analize/I%20love%20you","status":"OK","valor":"POSITIVE"}
-	
+
 Mientras que para el comentario "I hate you." el sistema devolverá:
 
 	{"ruta":"/analize/I%20hate%20you","status":"OK","valor":"NEGATIVE"}
-	
+
 En la ruta / del sistema se devolverá:
 
 {"ejemplo":{"ruta":"/analize/I%20love%20you","valor":"{\"ruta\":\"/analize/I%20love%20you\",\"status\":\"OK\",\"valor\":\"POSITIVE\"}"},"ruta":"/","status":"OK"}
-	
+
 En caso de tratar de acceder a una página que no existe el sistema devolverá:
 
 	{"status":404}
-	
+
 Finalmente se ha desarrollado la ruta https://shielded-scrubland-22143.herokuapp.com/about
 
 ### Tests
 
 Travis CI es un servicio de integración continua distribuido y alojado que se utiliza para crear y probar proyectos de software alojados en GitHub.
 
-Para el hito 2 se han implementado 11 tests para la comprobación de las distintas funciones del servicio. 
+Para el hito 2 se han implementado 11 tests para la comprobación de las distintas funciones del servicio.
 
 ### Despliegue
 
@@ -101,6 +101,14 @@ Esta configuración se realiza en el menú de la aplicación de Heroku, la opci�
 
 ![Despliegue](img/deploy.png)
 
+### Despliegue en Azure
+
+La aplicación ha sido desplegada en Azure en la dirección:
+
+```
+MV: 13.80.142.56
+```
+
+La descripción completa correspondiente al provisionamiento mediante Ansible en Azure se encuentra [aquí](https://github.com/xenahort/proyectoCloudComputing/blob/master/provision/ansible/README.md)
+
 ***
-
-

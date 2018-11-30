@@ -11,12 +11,12 @@
 - name: Installing pip3
   apt: name=python3-pip state=present
 
-- name: Toca clinar el proyecto
+- name: Toca clonar el proyecto
   git:
     repo: https://github.com/xenahort/proyectoCloudComputing
     dest: "~/proyectoCloudComputing"
 
-- name: Instalar fichero requirements 
+- name: Instalar fichero requirements
   shell: "pip3 install -r ~/proyectoCloudComputing/requirements.txt"
 
 - name: Descarga de corpus punkt
