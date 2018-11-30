@@ -149,4 +149,5 @@ def form(post_id):
     return respons
 
 if __name__ == '__main__':
-	app.run(port = PORT, debug = DEBUG)
+    port = int(os.environ.get("PORT", 80))
+    app.run(host='0.0.0.0', port=port)
