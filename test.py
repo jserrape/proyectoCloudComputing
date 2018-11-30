@@ -52,6 +52,16 @@ class TestMyServer(unittest.TestCase):
         response = app.calcularValorPalabra2("verb","N",1)
         self.assertEqual(-0.8, response, "Se ha encontrado un error en medir la positividad de una palabra 4")
 
+    def test_12(self):
+        response = app.divideOracion("I hate you")
+        self.assertEqual("[('I', 'PRP'), ('hate', 'VBP'), ('you', 'PRP')]", response, "Se ha encontrado un error al dividir una oracion 1")
+
+    def test_13(self):
+        response = app.divideOracion("I am a long phrase test to analyze")
+        self.assertEqual("[('I', 'PRP'), ('am', 'VBP'), ('a', 'DT'), ('long', 'JJ'), ('phrase', 'NN'), ('test', 'NN'), ('to', 'TO'), ('analyze', 'VB')]", response, "Se ha encontrado un error al dividir una oracion 2")
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -101,6 +101,12 @@ def calcularValorPalabra2(tipo,positiva,Vfrase):
     elif(tipo == "adv" and positiva == "N"):
         return (Vfrase*adverbios*(-1))
     return 0
+	
+#Divide una oracion en palabras
+def divideOracion(sentence):
+	tokenizer = TreebankWordTokenizer()
+	tagger = nltk.data.load(_POS_TAGGER)
+	return str(tagger.tag(tokenizer.tokenize(sentence)))
 
 
 @app.errorhandler(404)
@@ -142,6 +148,20 @@ def form(post_id):
     respons = {}
     respons['status'] = 'OK'
     respons['ruta'] = '/analize/'+urr
+    respons['valor'] = resultado
+    respons = jsonify(respons)
+    respons.status_code = 201
+
+    return respons
+	
+@app.route('/divide/<post_id>', methods=['GET', 'POST'])
+def divide(post_id):
+    resultado = divideOracion(post_id)
+    urr = str(post_id).replace(" ", "%20")
+
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/divide/'+urr
     respons['valor'] = resultado
     respons = jsonify(respons)
     respons.status_code = 201
