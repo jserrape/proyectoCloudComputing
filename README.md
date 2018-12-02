@@ -106,7 +106,7 @@ Esta configuración se realiza en el menú de la aplicación de Heroku, la opci�
 La aplicación ha sido desplegada en Azure en la dirección:
 
 ```
-MV: 13.80.142.56
+MV: 13.80.105.155
 ```
 
 La descripción completa correspondiente al provisionamiento mediante Ansible en Azure se encuentra [aquí](https://github.com/xenahort/proyectoCloudComputing/blob/master/provision/ansible/README.md)

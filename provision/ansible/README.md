@@ -5,7 +5,7 @@ Para el provisionamiento se ha utilizado una máquina virtual **Ubuntu Server 18
 La aplicación ha sido desplegada en Azure en la dirección:
 
 ```
-MV: 13.80.142.56
+MV: 13.80.105.155
 ```
 
 ## Ejecución
