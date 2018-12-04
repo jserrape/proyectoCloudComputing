@@ -10,8 +10,6 @@
 
 Proyecto de la asignatura Cloud Computing del Máster de Ingeniería Informática de Granada.
 
-A lo largo del desarrollo del proyecto, se actualizará la web de la aplicación con funcionalidades y especificaciones del propio en el siguiente [enlace](https://xenahort.github.io/).
-
 ***
 
 ## Descripción de la situación actual
@@ -111,11 +109,5 @@ MV: 13.80.105.155
 
 La descripción completa correspondiente al provisionamiento mediante Ansible en Azure se encuentra [aquí](https://github.com/xenahort/proyectoCloudComputing/blob/master/provision/ansible/README.md)
 
-### Despliegue por Felipe Peiro
-
-El provisionamiento del servicio ha sido probado por [@fpeiro](https://github.com/fpeiro) verificando que las tareas se realizan
-correctamente. Se muestra una captura del resultado obtenido:
-
-![Despliegue-fpeiro](https://github.com/fpeiro/proyectoCloudComputing/blob/master/img/fpeiro-deploy.png)
 
 ***

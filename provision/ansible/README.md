@@ -96,4 +96,9 @@ Se ha comprobado el provisionamiento en una máquina virtual del proyecto [Apolo
 ![Provisionamiento](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/apolo1.png)
 ![Prueba](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/apolo2.png)
 
-## Proyecto comprobado por
+## Proyecto comprobado por [fpeiro](https://github.com/fpeiro)
+
+El provisionamiento del servicio ha sido probado por [@fpeiro](https://github.com/fpeiro) verificando que las tareas se realizan
+correctamente. Se muestra una captura del resultado obtenido:
+
+![Despliegue-fpeiro](https://github.com/fpeiro/proyectoCloudComputing/blob/master/img/fpeiro-deploy.png)
