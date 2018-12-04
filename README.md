@@ -134,10 +134,10 @@ Abro el puerto ssh de la máquina
 az vm open-port --port 22 --resource-group acopioM --name maquinaHito4
 ```
 
-Defino el usuario 'user' y añado la clave pública.
+Defino el usuario y añado la clave pública.
 
 ```
-az vm user update --resource-group acopioM -n maquinaHito4 -u user --ssh-key-value "$(< $HOME/.ssh/id_rsa.pub)"
+az vm user update --resource-group acopioM -n maquinaHito4 -u xenahort --ssh-key-value "$(< $HOME/.ssh/id_rsa.pub)"
 ```
 
 Con lo anterior la máquina está instalada y configurada para iniciar el [provisionamiento](https://github.com/xenahort/proyectoCloudComputing/tree/master/provision/ansible).
@@ -148,5 +148,10 @@ Se clona el proyecto y se modifica el fichero hosts con la ip de la máquina.
 git clone https://github.com/xenahort/proyectoCloudComputing
 cd provision/ansible
 
-echo "[ubuntuserver]\nxenahort ansible_ssh_port=22 ansible_ssh_host=**$ip**\n[ubuntuserver:vars]\nansible_ssh_user=xenahort\nansible_ssh_private_key_file=~/ssh/key" > hosts
+echo "[ubuntuserver]\nxenahort ansible_ssh_port=22 ansible_ssh_host=**$ip**\n[ubuntuserver:vars]\nansible_ssh_user=xenahort\nansible_ssh_private_key_file=$HOME/.ssh/id_rsa" > hosts
+```
+
+Finalmente hay que ejecutar el playbook
+```
+ansible-playbook playbook.yml
 ```
