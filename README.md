@@ -111,3 +111,42 @@ La descripción completa correspondiente al provisionamiento mediante Ansible en
 
 
 ***
+
+### Acopio
+
+A través de la línea de comandos "Cloud shell" se ejecutarán los siguientes comandos para la creación de una máquina.
+
+En primer lugar creamos el grupo 'acopioM' correspondiente a la localización Europa occidental.
+
+```
+az group create --name acopioM --location westeurope
+```
+
+Posteriormente creamos la maquina 'maquinaHito4' asociada al grupo anterior con una imagen UbuntuLTS, se generan las claves ssh, y se vuelca en un fichero temporal del que se extraerá la ip de la máquina. 
+
+```
+az vm create --resource-group acopioM --name maquinaHito4 --image UbuntuLTS --generate-ssh-keys > tmp
+ip=$(jq -r '.publicIpAddress' tmp)
+```
+
+Abro el puerto ssh de la máquina
+```
+az vm open-port --port 22 --resource-group acopioM --name maquinaHito4
+```
+
+Defino el usuario 'user' y añado la clave pública.
+
+```
+az vm user update --resource-group acopioM -n maquinaHito4 -u user --ssh-key-value "$(< $HOME/.ssh/id_rsa.pub)"
+```
+
+Con lo anterior la máquina está instalada y configurada para iniciar el [provisionamiento](https://github.com/xenahort/proyectoCloudComputing/tree/master/provision/ansible).
+
+Se clona el proyecto y se modifica el fichero hosts con la ip de la máquina.
+
+```
+git clone https://github.com/xenahort/proyectoCloudComputing
+cd provision/ansible
+
+echo "[ubuntuserver]\nxenahort ansible_ssh_port=22 ansible_ssh_host=**$ip**\n[ubuntuserver:vars]\nansible_ssh_user=xenahort\nansible_ssh_private_key_file=~/ssh/key" > hosts
+```
