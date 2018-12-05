@@ -60,6 +60,13 @@ class TestMyServer(unittest.TestCase):
         response = app.divideOracion("I am a long phrase test to analyze")
         self.assertEqual("[('I', 'PRP'), ('am', 'VBP'), ('a', 'DT'), ('long', 'JJ'), ('phrase', 'NN'), ('test', 'NN'), ('to', 'TO'), ('analyze', 'VB')]", response, "Se ha encontrado un error al dividir una oracion 2")
 
+    def test_14(self):
+        response = app.lowerr("HOLA MUNDO")
+        self.assertEqual("hola mundo", response, "Se ha encontrado un error en al masar a minuscula")
+
+    def test_15(self):
+        response = app.upperr("hola mundo")
+        self.assertEqual("HOLA MUNDO", response, "Se ha encontrado un error al pasar a mayuscula")
 
 
 

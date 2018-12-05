@@ -108,6 +108,13 @@ def divideOracion(sentence):
 	tagger = nltk.data.load(_POS_TAGGER)
 	return str(tagger.tag(tokenizer.tokenize(sentence)))
 
+#Transforma una oracion a minuscula
+def lowerr(sentence):
+	return sentence.lower()
+	
+#Transforma una oracion a mayuscula
+def upperr(sentence):
+	return sentence.upper()
 
 @app.errorhandler(404)
 def not_found(error):
@@ -128,6 +135,34 @@ def index():
     respons['ejemplo'] = ejemplo
     respons = jsonify(respons)
     respons.status_code = 201
+    return respons
+	
+@app.route('/lower/<post_id>', methods=['GET', 'POST'])
+def lowwer(post_id):
+    resultado = lowerr(post_id)
+    urr = str(post_id).replace(" ", "%20")
+
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/analize/'+urr
+    respons['valor'] = resultado
+    respons = jsonify(respons)
+    respons.status_code = 201
+
+    return respons
+	
+@app.route('/upper/<post_id>', methods=['GET', 'POST'])
+def uupper(post_id):
+    resultado = upperr(post_id)
+    urr = str(post_id).replace(" ", "%20")
+
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/analize/'+urr
+    respons['valor'] = resultado
+    respons = jsonify(respons)
+    respons.status_code = 201
+
     return respons
 
 @app.route('/about')
