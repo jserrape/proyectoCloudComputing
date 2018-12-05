@@ -26,7 +26,7 @@ git clone https://github.com/xenahort/proyectoCloudComputing
 cd proyectoCloudComputing/provision/ansible/
 
 #Modifico el fichero hosts
-echo "[ubuntuserver]\nxenahort ansible_ssh_port=22 ansible_ssh_host=**$ip**\n[ubuntuserver:vars]\nansible_ssh_user=xenahort\nansible_ssh_private_key_file=$HOME/.ssh/id_rsa" > hosts
+echo "[ubuntuserver]\nxenahort ansible_ssh_port=22 ansible_ssh_host=$ip\n[ubuntuserver:vars]\nansible_ssh_user=xenahort\nansible_ssh_private_key_file=$HOME/.ssh/id_rsa" > hosts
 
 #Finalmente hay que ejecutar el playbook
 ansible-playbook playbook.yml
