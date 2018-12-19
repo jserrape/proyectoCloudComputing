@@ -128,7 +128,7 @@ A través de la línea de comandos "Cloud shell" se ejecutarán los siguientes c
 En primer lugar creamos el grupo 'acopioM' correspondiente a la localización Europa occidental.
 
 ```
-az group create --name acopioM --location westeurope
+az group create --name acopioM --location uksouth
 ```
 
 Posteriormente creamos la maquina 'maquinaHito4' asociada al grupo anterior con una imagen UbuntuLTS. La creación de la máquina devolverá un JSON con diferentes parámetros de la máquina como su IP que se extraerá con [jq](https://stedolan.github.io/jq/manual/).
@@ -179,6 +179,8 @@ ansible-playbook playbook.yml
 ```
 
 ### Prueba de velocidad
+
+La localización de la máquina es uksouth ya que como se puede ver en [http://www.azurespeed.com/](http://www.azurespeed.com/) ya que tiene mejores estadísticas que otras localizaciones.
 
 Para la prueba de velocidad se ha utilizado el comando 'httperf' de la forma:
 ```

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Crea el grupo de recursos llamado acopioM
-az group create --name acopioM --location westeurope
+az group create --name acopioM --location uksouth
 
 #Crea una maquina en el grupo de recursos generado anteriormente con nombre maquinaHito4, genero las claves ssh aqui
 #Extrae la ip del campo .publicIpAddress del fichero generado anteriormente
