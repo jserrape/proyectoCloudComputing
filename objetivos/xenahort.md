@@ -1,47 +1,59 @@
-ï»¿#Hito 0:
+#Hito 0:
 
-- [x] Entender la metodologÃ­a docente, de evaluaciÃ³n y de interacciÃ³n de la asignatura.
-- [x] Darse de alta y comprender el funcionamiento bÃ¡sico de GitHub.
-- [x] Darse de alta y comprender el funcionamiento bÃ¡sico de Telegram de la asignatura.
+- [x] Entender la metodología docente, de evaluación y de interacción de la asignatura.
+- [x] Darse de alta y comprender el funcionamiento básico de GitHub.
+- [x] Darse de alta y comprender el funcionamiento básico de Telegram de la asignatura.
 - [x] Conocer el resto de los recursos de la asignatura.
-- [x] Entender el concepto de software libre y su aplicaciÃ³n prÃ¡ctica en clase.
+- [x] Entender el concepto de software libre y su aplicación práctica en clase.
 - [x] Vernos las caras.
-- [x] Comenzar a usar git desde lÃ­nea de Ã³rdenes y comprender su papel como sistema para trabajo colaborativo y despliegue de aplicaciones.
-- [x] Comprender la metodologÃ­a de desarrollo, prueba y despliegue en la que se basa la computaciÃ³n en nube.
-- [x] Entender en quÃ© consiste el proyecto de la asignatura y comenzar a trabajar en el mismo.
+- [x] Comenzar a usar git desde línea de órdenes y comprender su papel como sistema para trabajo colaborativo y despliegue de aplicaciones.
+- [x] Comprender la metodología de desarrollo, prueba y despliegue en la que se basa la computación en nube.
+- [x] Entender en qué consiste el proyecto de la asignatura y comenzar a trabajar en el mismo.
 
 #Hito 1
 
-- [x] Comprender la metodologÃ­a de desarrollo, prueba y despliegue en la que se basa la computaciÃ³n en nube.
-- [x] Entender las caracterÃ­sticas de las aplicaciones que se despliegan en la nube.
-- [x] Manejar con soltura los diferentes recursos de lÃ­nea de Ã³rdenes, especialmente en Linux.
+- [x] Comprender la metodología de desarrollo, prueba y despliegue en la que se basa la computación en nube.
+- [x] Entender las características de las aplicaciones que se despliegan en la nube.
+- [x] Manejar con soltura los diferentes recursos de línea de órdenes, especialmente en Linux.
 - [x] Saber manejar la historia de comandos anteriores.
-- [x] Conocer permisos y cuales usar en cada momento (permisos de aquello que necesitemos realizar por lÃ­nea de comandos).
+- [x] Conocer permisos y cuales usar en cada momento (permisos de aquello que necesitemos realizar por línea de comandos).
 - [x] Haber entregado el hito 0 del proyecto.
-- [x] Entender quÃ© se buscaba con el hito 0 del proyecto.
+- [x] Entender qué se buscaba con el hito 0 del proyecto.
 - [x] Comprender el primer hito del proyecto.
 - [x] Entender el tipo de proyecto que hay que llevar a cabo en la asignatura y obtener una idea principal del mismo.
-- [x] Lectura y comprensiÃ³n del concepto de microservicios del repositorio de clase
+- [x] Lectura y comprensión del concepto de microservicios del repositorio de clase
 - [x] Asistir a la charla recomendada por la asignatura "0 a Cloud"
 
 #Hito 2
 
 - [x] Entender las arquitecturas de software en la nube de uso en la actualidad.
 - [x] Comprender el paper fundamental de la infraestructura virtual en este proceso.
-- [x] Entender en quÃ© consiste los servicios web y cÃ³mo desplegarlos en la nube.
-- [x] Revisar los resultados del primer hito y [entender los fallos](https://github.com/xenahort/proyectoCloudComputing/issues/4). Si no se ha entregado todavÃ­a, lo dejamos para la clase del viernes.
-- [x] Tener manejo bÃ¡sico de los lenguajes usados en herramientas de provisionamiento, [Python](https://github.com/xenahort/proyectoCloudComputing) y Ruby.
+- [x] Entender en qué consiste los servicios web y cómo desplegarlos en la nube.
+- [x] Revisar los resultados del primer hito y [entender los fallos](https://github.com/xenahort/proyectoCloudComputing/issues/4). Si no se ha entregado todavía, lo dejamos para la clase del viernes.
+- [x] Tener manejo básico de los lenguajes usados en herramientas de provisionamiento, [Python](https://github.com/xenahort/proyectoCloudComputing) y Ruby.
 - [x] Darse de alta en servicios PaaS como zeit.co y [Heroku](https://raw.githubusercontent.com/xenahort/proyectoCloudComputing/master/img/Pantallazo%20de%20Heroku.png).
-- [x] Establecido el tema de la charla de recuperaciÃ³n: provisiÃ³n con Ansible.
-- [x] Entender por quÃ© no se hace git pull sino git pull --rebase y como arreglarlo en ese caso usando un squash commits con git rebase -i.
+- [x] Establecido el tema de la charla de recuperación: provisión con Ansible.
+- [x] Entender por qué no se hace git pull sino git pull --rebase y como arreglarlo en ese caso usando un squash commits con git rebase -i.
 
 #Hito 3
 
 - [x] Comprender el tipo de aplicaciones que se despliegan en la nube.
-- [x] Entender el concepto de infraestructura virtual y cÃ³mo describir infraestructura mediante software.
+- [x] Entender el concepto de infraestructura virtual y cómo describir infraestructura mediante software.
 - [x] Asistir al seminario de provisionamiento con [Ansible] (https://www.meetup.com/es-ES/Granada-Geek/events/255973562/)
-- [x] Repasar los reenvÃ­os del hito 2 y los que no han reenviado todavÃ­a.
+- [x] Repasar los reenvíos del hito 2 y los que no han reenviado todavía.
 - [x] Conocer las diferentes ofertas de PaaS en la nube.
-- [x] Instalar las herramientas de lÃ­nea de Ã³rdenes de las herramientas cloud.
+- [x] Instalar las herramientas de línea de órdenes de las herramientas cloud.
 - [ ] Hacerse con alguna cuenta gratuita o bonificada de cloud.
-- [x] Aprender la mÃ­nimo de los lenguajes necesarios para trabajar en la nube (Perl, Python y Ruby).
+- [x] Aprender la mínimo de los lenguajes necesarios para trabajar en la nube (Perl, Python y Ruby).
+
+#Hito 4
+
+- [x] Entender el funcionamiento básico de los sistemas de gestión de recursos en la nube.
+- [x] Asimilar los conceptos relacionados con tales sistemas.
+- [x] Instalarse los diferentes clientes de líneas de órdenes de los sistemas en la nube a los que se tenga acceso.
+- [ ] Instalar algunas otras utilidades que puedan ser de ayuda, como `jq` y herramientas de medición de prestaciones como `httperf` o `ab`.
+- [x] Entender los errores más comunes en la entrega del hito 3.
+- [x] Entender los recursos para automatización de actividades en la nube
+- [x] Entender el concepto de infraestructura definida por software.
+- [x] Resolver los problemas con Vagrant para diferentes proveedores de nube.
+- [ ] Probar diferentes proveedores de nube y ver las posibilidades que ofrecen.

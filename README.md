@@ -114,6 +114,15 @@ La descripción completa correspondiente al provisionamiento mediante Ansible en
 
 ### Acopio
 
+Para el acopio se ha utilizado una máquina virtual **Ubuntu Server 18.04 LTS**. Se ha escogido dicha imagen debido a que no requerimos de elementos como interfaz gráfica ni navegadores, y sí que se requeriría de un soporte a largo plazo.
+
+
+La aplicación ha sido desplegada en Azure en la dirección:
+
+```
+MV2: 40.127.160.236
+```
+
 A través de la línea de comandos "Cloud shell" se ejecutarán los siguientes comandos para la creación de una máquina.
 
 En primer lugar creamos el grupo 'acopioM' correspondiente a la localización Europa occidental.
@@ -131,7 +140,20 @@ ip=$(jq -r '.publicIpAddress' tmp)
 
 Abro el puerto ssh de la máquina
 ```
-az vm open-port --port 22 --resource-group acopioM --name maquinaHito4
+az network nsg rule create --resource-group acopioM --nsg-name maquinaHito4 --name SSH_rule \
+    --protocol tcp \
+    --priority 320 \
+    --destination-port-range 22 \
+    --access allow >/dev/null
+```
+
+Abro el puerto http de la máquina
+```
+az network nsg rule create --resource-group acopioM --nsg-name maquinaHito4 --name HTTP_rule \
+    --protocol tcp \
+    --priority 300 \
+    --destination-port-range 80 \
+    --access allow >/dev/null
 ```
 
 Defino el usuario y añado la clave pública.
@@ -155,3 +177,37 @@ Finalmente hay que ejecutar el playbook
 ```
 ansible-playbook playbook.yml
 ```
+
+### Prueba de velocidad
+
+Para la prueba de velocidad se ha utilizado el comando 'httperf' de la forma:
+```
+httperf --port 80 --num-conns 10 --rate 1 --server 40.127.160.236
+```
+
+Obetniendo:
+```
+httperf --client=0/1 --server=40.127.160.236 --port=80 --uri=/ --rate=1 --send-buffer=4096 --recv-buffer=16384 --num-conns=20 --num-calls=1
+httperf: warning: open file limit > FD_SETSIZE; limiting max. # of open files to FD_SETSIZE
+Maximum connect burst length: 1
+
+Total: connections 20 requests 20 replies 20 test-duration 19.126 s
+
+Connection rate: 1.0 conn/s (956.3 ms/conn, <=1 concurrent connections)
+Connection time [ms]: min 118.3 avg 148.3 max 337.5 median 124.5 stddev 60.3
+Connection time [ms]: connect 77.6
+Connection length [replies/conn]: 1.000
+
+Request rate: 1.0 req/s (956.3 ms/req)
+Request size [B]: 67.0
+
+Reply rate [replies/s]: min 1.0 avg 1.0 max 1.0 stddev 0.0 (3 samples)
+Reply time [ms]: response 62.0 transfer 8.6
+Reply size [B]: header 152.0 content 162.0 footer 0.0 (total 314.0)
+Reply status: 1xx=0 2xx=20 3xx=0 4xx=0 5xx=0
+
+CPU time [s]: user 4.38 system 14.30 (user 22.9% system 74.7% total 97.6%)
+Net I/O: 0.4 KB/s (0.0*10^6 bps)
+```
+
+Así pues, con un total de 20 conexiones  el 'Reply rate' medio es de 1.0 replies/s y el 'Connection time' medio es de 124.5 ms.

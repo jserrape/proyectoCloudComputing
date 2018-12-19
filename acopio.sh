@@ -15,11 +15,20 @@ cat tmp
 ip=$(jq -r '.publicIpAddress' tmp)
 
 #Abro los puertos ssh y http
-az vm open-port --port 22 --resource-group acopioM --name maquinaHito4
-#az vm open-port --port 80 --resource-group acopioM --name maquinaHito4
+az network nsg rule create --resource-group acopioM --nsg-name maquinaHito4 --name SSH_rule \
+    --protocol tcp \
+    --priority 320 \
+    --destination-port-range 22 \
+    --access allow >/dev/null
+
+az network nsg rule create --resource-group acopioM --nsg-name maquinaHito4 --name HTTP_rule \
+    --protocol tcp \
+    --priority 300 \
+    --destination-port-range 80 \
+    --access allow >/dev/null
 
 #Añado la clave publica
-az vm user update --resource-group acopioM -n maquinaHito4 -u xenahort --ssh-key-value "$(< $HOME/.ssh/id_rsa.pub)"
+az vm user update --resource-group acopioM -n maquinaHito4 -u xenahort --ssh-key-value "$(< $HOME/.ssh/id_rsa.pub)"z
 
 #Clono el proyecto
 git clone https://github.com/xenahort/proyectoCloudComputing
