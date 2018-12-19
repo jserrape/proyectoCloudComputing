@@ -132,7 +132,7 @@ az group create --name acopioM --location westeurope
 ```
 
 Posteriormente creamos la maquina 'maquinaHito4' asociada al grupo anterior con una imagen UbuntuLTS. La creación de la máquina devolverá un JSON con diferentes parámetros de la máquina como su IP que se extraerá con [jq](https://stedolan.github.io/jq/manual/).
-Para extraer el parametro ip del JSON se ha usado el comentario de [Brian Campbell](https://stackoverflow.com/users/69755/brian-campbell) del post https://stackoverflow.com/questions/1955505/parsing-json-with-unix-tools
+Para extraer el parametro publicIpAddress del JSON se basado en el comentario de [Brian Campbell](https://stackoverflow.com/users/69755/brian-campbell) del post https://stackoverflow.com/questions/1955505/parsing-json-with-unix-tools
 
 ```
 ip=$(az vm create --resource-group acopioM --name maquinaHito4 --image UbuntuLTS --generate-ssh-keys | jq -r '.publicIpAddress')
