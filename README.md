@@ -182,7 +182,7 @@ ansible-playbook playbook.yml
 
 Para la prueba de velocidad se ha utilizado el comando 'httperf' de la forma:
 ```
-httperf --port 80 --num-conns 10 --rate 1 --server 40.127.160.236
+httperf --port 80 --num-conns 20 --rate 1 --server 40.127.160.236
 ```
 
 Obetniendo:
