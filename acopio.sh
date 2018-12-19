@@ -1,18 +1,12 @@
 #!/bin/bash
 
-#Generar claves ssh
-#ssh-keygen -t rsa
-
 # Crea el grupo de recursos llamado acopioM
 az group create --name acopioM --location westeurope
 
 #Crea una maquina en el grupo de recursos generado anteriormente con nombre maquinaHito4, genero las claves ssh aqui
-az vm create --resource-group acopioM --name maquinaHito4 --image UbuntuLTS --generate-ssh-keys > tmp
-
-cat tmp
-
 #Extrae la ip del campo .publicIpAddress del fichero generado anteriormente
-ip=$(jq -r '.publicIpAddress' tmp)
+#Para extraer el parametro ip del JSON se ha usado el comentario de Brian Campbell del post https://stackoverflow.com/questions/1955505/parsing-json-with-unix-tools
+ip=$(az vm create --resource-group acopioM --name maquinaHito4 --image UbuntuLTS --generate-ssh-keys | jq -r '.publicIpAddress')
 
 #Abro los puertos ssh y http
 az network nsg rule create --resource-group acopioM --nsg-name maquinaHito4 --name SSH_rule \
