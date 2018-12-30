@@ -68,10 +68,6 @@ class TestMyServer(unittest.TestCase):
         response = app.upperr("hola mundo")
         self.assertEqual("HOLA MUNDO", response, "Se ha encontrado un error al pasar a mayuscula")
 
-    def test_16(self):
-        response = app.stopw("This is a sample sentence, showing off the stop words filtration.")
-        str = "['This', 'sample', 'sentence', ',', 'show[36 chars] '.']"
-        self.assertEqual(str, response, "Se ha encontrado un error al buscar las stopworld")
 
 if __name__ == '__main__':
     unittest.main()
