@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request, Response
 from nltk.tokenize import TreebankWordTokenizer
 from nltk import WhitespaceTokenizer, SpaceTokenizer, WordPunctTokenizer, TreebankWordTokenizer
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 import io, nltk, sys, time, numpy, os, json
 
@@ -101,7 +103,7 @@ def calcularValorPalabra2(tipo,positiva,Vfrase):
     elif(tipo == "adv" and positiva == "N"):
         return (Vfrase*adverbios*(-1))
     return 0
-	
+
 #Divide una oracion en palabras
 def divideOracion(sentence):
 	tokenizer = TreebankWordTokenizer()
@@ -111,10 +113,21 @@ def divideOracion(sentence):
 #Transforma una oracion a minuscula
 def lowerr(sentence):
 	return sentence.lower()
-	
+
 #Transforma una oracion a mayuscula
 def upperr(sentence):
 	return sentence.upper()
+
+#Elimina las stopworld de una frase
+def stopw(sentence):
+    stop_words = set(stopwords.words('english'))
+    word_tokens = word_tokenize(sentence)
+    filtered_sentence = [w for w in word_tokens if not w in stop_words]
+    filtered_sentence = []
+    for w in word_tokens:
+        if w not in stop_words:
+            filtered_sentence.append(w)
+    return filtered_sentence
 
 @app.errorhandler(404)
 def not_found(error):
@@ -136,7 +149,7 @@ def index():
     respons = jsonify(respons)
     respons.status_code = 201
     return respons
-	
+
 @app.route('/lower/<post_id>', methods=['GET', 'POST'])
 def lowwer(post_id):
     resultado = lowerr(post_id)
@@ -150,7 +163,7 @@ def lowwer(post_id):
     respons.status_code = 201
 
     return respons
-	
+
 @app.route('/upper/<post_id>', methods=['GET', 'POST'])
 def uupper(post_id):
     resultado = upperr(post_id)
@@ -188,10 +201,24 @@ def form(post_id):
     respons.status_code = 201
 
     return respons
-	
+
 @app.route('/divide/<post_id>', methods=['GET', 'POST'])
 def divide(post_id):
     resultado = divideOracion(post_id)
+    urr = str(post_id).replace(" ", "%20")
+
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/divide/'+urr
+    respons['valor'] = resultado
+    respons = jsonify(respons)
+    respons.status_code = 201
+
+    return respons
+
+@app.route('/stop/<post_id>', methods=['GET', 'POST'])
+def stop(post_id):
+    resultado = stopw(post_id)
     urr = str(post_id).replace(" ", "%20")
 
     respons = {}
