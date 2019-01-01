@@ -53,3 +53,9 @@ Despliegue Vagrant: mv.servicioclo.ud
 El sistema de orquestación implementado por [@xenahort](https://github.com/xenahort) ha sido probado por [@fpeiro](https://github.com/fpeiro) verificando que los resultados obtenidos son los correctos. A continuación se muestra una prueba de su ejecución:
 
 ![Vagrant-fpeiro](https://github.com/fpeiro/proyectoCloudComputing/blob/master/img/vagrant-fpeiro.png)
+
+## Comprobación de proyecto de [gomezportillo](https://github.com/gomezportillo)
+
+Se ha comprobado el sistema de orquestación implementado por [@gomezportillo](https://github.com/gomezportillo) verificando que los resultados obtenidos son los correctos. A continuación se muestra una prueba de su ejecución:
+
+![Vagrant-gomezportillo](https://github.com/vagrant-gomezportillo/proyectoCloudComputing/blob/master/img/vagrant-gomezportillo.png)
