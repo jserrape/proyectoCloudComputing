@@ -58,4 +58,4 @@ El sistema de orquestación implementado por [@xenahort](https://github.com/xena
 
 Se ha comprobado el sistema de orquestación implementado por [@gomezportillo](https://github.com/gomezportillo) verificando que los resultados obtenidos son los correctos. A continuación se muestra una prueba de su ejecución:
 
-![Vagrant-gomezportillo](https://github.com/vagrant-gomezportillo/proyectoCloudComputing/blob/master/img/vagrant-gomezportillo.png)
+![Vagrant-gomezportillo](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/vagrant-gomezportillo.png)
