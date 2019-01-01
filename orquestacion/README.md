@@ -47,3 +47,9 @@ El proyecto se encuentra en la ip:
 ```
 Despliegue Vagrant: mv.servicioclo.ud
 ```
+
+## Proyecto comprobado por [fpeiro](https://github.com/fpeiro)
+
+El sistema de orquestación implementado por [@xenahort](https://github.com/xenahort) ha sido probado por [@fpeiro](https://github.com/fpeiro) verificando que los resultados obtenidos son los correctos. A continuación se muestra una prueba de su ejecución:
+
+![Vagrant-fpeiro](https://github.com/fpeiro/proyectoCloudComputing/blob/master/img/vagrant-fpeiro.png)
