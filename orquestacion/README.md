@@ -45,7 +45,7 @@ $ vagrant up --provider=azure
 El proyecto se encuentra en la ip:
 
 ```
-Despliegue Vagrant: mv.servicioclo.ud
+Despliegue Vagrant: 13.94.149.242
 ```
 
 ## Proyecto comprobado por [fpeiro](https://github.com/fpeiro)
