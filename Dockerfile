@@ -6,7 +6,8 @@ WORKDIR /app/docker
 
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip install numpy
+RUN pip install -r requirements.txt
 
 EXPOSE 80
 
