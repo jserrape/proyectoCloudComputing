@@ -27,7 +27,7 @@ $ sudo apt-get update
 $ sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
 
-3. Add Docker’s official GPG key:
+3. Agregar la llave GPG oficial de Docker:
 ```
 $ sudo apt-key fingerprint 0EBFCD88
 ```
