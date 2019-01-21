@@ -1,5 +1,4 @@
-import unittest
-import app
+import unittest, app, numpy
 
 
 class TestMyServer(unittest.TestCase):

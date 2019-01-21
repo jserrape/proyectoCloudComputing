@@ -4,7 +4,7 @@ from nltk import WhitespaceTokenizer, SpaceTokenizer, WordPunctTokenizer, Treeba
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-import io, nltk, sys, time, numpy, os, json, re
+import io, nltk, sys, time, os, json, re
 
 
 app = Flask(__name__)
