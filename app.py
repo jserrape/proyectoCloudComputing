@@ -4,7 +4,7 @@ from nltk import WhitespaceTokenizer, SpaceTokenizer, WordPunctTokenizer, Treeba
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-import io, nltk, sys, time, numpy, os, json
+import io, nltk, sys, time, numpy, os, json, re
 
 
 app = Flask(__name__)
@@ -129,6 +129,9 @@ def stopw(sentence):
             filtered_sentence.append(w)
     return filtered_sentence
 
+def eliminaCaracteres(sentence):
+    return (re.sub('[,\.@#^&*;$:\[\]()¿?!¡\n]', '', sentence))
+
 @app.errorhandler(404)
 def not_found(error):
     respons = {}
@@ -167,6 +170,20 @@ def lowwer(post_id):
 @app.route('/upper/<post_id>', methods=['GET', 'POST'])
 def uupper(post_id):
     resultado = upperr(post_id)
+    urr = str(post_id).replace(" ", "%20")
+
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/analize/'+urr
+    respons['valor'] = resultado
+    respons = jsonify(respons)
+    respons.status_code = 201
+
+    return respons
+
+@app.route('/clean/<post_id>', methods=['GET', 'POST'])
+def clean(post_id):
+    resultado = eliminaCaracteres(post_id)
     urr = str(post_id).replace(" ", "%20")
 
     respons = {}

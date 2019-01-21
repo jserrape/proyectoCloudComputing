@@ -68,6 +68,10 @@ class TestMyServer(unittest.TestCase):
         response = app.upperr("hola mundo")
         self.assertEqual("HOLA MUNDO", response, "Se ha encontrado un error al pasar a mayuscula")
 
+    def test_16(self):
+        response = app.eliminaCaracteres("text with symbols!@#$^&*( ends here")
+        self.assertEqual("text with symbols ends here", response, "Se ha encontrado un error al eliminar caracteres especiales")
+
 
 if __name__ == '__main__':
     unittest.main()
