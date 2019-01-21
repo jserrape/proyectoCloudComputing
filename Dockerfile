@@ -6,9 +6,4 @@ WORKDIR /app/docker
 
 COPY . .
 
-RUN pip install numpy
-RUN pip install -r requirements.txt
-
-EXPOSE 80
-
-CMD ["python3", "apolo/server.py"]
+RUN pip3 install numpy
