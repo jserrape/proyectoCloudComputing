@@ -44,4 +44,21 @@ $ sudo apt-get install docker-ce
 ```
 
 Para comprobar que se ha instalado correctamente se ejecutará la imagen ```hello-world````:
-![hello](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/pruebaDocker.png)
+![img](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/pruebaDocker.png)
+
+
+## Desplegar contenedor de Hub Docker
+
+1. Iniciar servicio docker
+```
+sudo service docker start
+```
+
+2. Descargar y ejecutar docker
+```
+sudo docker run xenahort/proyectocc bash
+```
+
+La imagen del docker no se encontrará localmente, así que se descargará de forma automática.
+
+![img](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/dockerhub.png)
