@@ -62,3 +62,24 @@ sudo docker run xenahort/proyectocc bash
 La imagen del docker no se encontrará localmente, así que se descargará de forma automática.
 
 ![img](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/dockerhub.png)
+
+
+## Desplegar contenedor en Azure
+
+A través de la consola de Azure se ejecuta el siguiente comando:
+```
+az webapp create --resource-group cloud-shell-storage-westeurope && \
+--plan plan-CC && \
+--name proyectocloudcomputing && \
+--deployment-container-image-name xenahort/proyectocc
+```
+
+Los parámetros empleados son:
+- Grupo de recursos: cloud-shell-storage-westeurope
+- Plan:  plan-CC
+- Nombre: proyectocloudcomputing
+- Nombre de la imagen del contenedor: xenahort/proyectocc
+
+Por conflictos con la suscripción de Azure se realizará el despliegue en Heroku.
+
+## Desplegar contenedor en Heroku
