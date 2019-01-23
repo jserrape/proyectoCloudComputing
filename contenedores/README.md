@@ -91,7 +91,7 @@ az account set --subscription "nombre de la suscripcion"
 Tras el cambio de suscripción se ha desplegado la aplicación en la siguiente dirección:
 
 ```
-Hito6: http://proyectocloudcomputing.azurewebsites.net
+Contenedor: http://proyectocloudcomputing.azurewebsites.net
 ```
 
 ## Desplegar contenedor en Heroku
