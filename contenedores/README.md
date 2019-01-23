@@ -93,6 +93,9 @@ Tras el cambio de suscripción se ha desplegado la aplicación en la siguiente d
 ```
 Contenedor: http://proyectocloudcomputing.azurewebsites.net
 ```
+```
+DockerHub: https://hub.docker.com/r/xenahort/proyectocc
+```
 
 ## Desplegar contenedor en Heroku
 
