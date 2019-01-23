@@ -80,7 +80,19 @@ Los parámetros empleados son:
 - Nombre: proyectocloudcomputing
 - Nombre de la imagen del contenedor: xenahort/proyectocc
 
-Por conflictos con la suscripción de Azure se realizará el despliegue en Heroku.
+~~Por conflictos con la suscripción de Azure se realizará el despliegue en Heroku.~~
+
+En caso de error en Azure porque la suscripción esté deshabilitada se puede cambiar con el comando:
+
+```
+az account set --subscription "nombre de la suscripcion"
+```
+
+Tras el cambio de suscripción se ha desplegado la aplicación en la siguiente dirección:
+
+```
+Hito6: http://proyectocloudcomputing.azurewebsites.net
+```
 
 ## Desplegar contenedor en Heroku
 
@@ -106,3 +118,5 @@ Para desplegar el Docker se deberá colocar la pila de la aplicación en contene
 $ heroku stack:set container
 $ git push heroku master
 ```
+
+## Fichero Dockerfile
