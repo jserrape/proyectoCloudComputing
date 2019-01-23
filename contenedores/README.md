@@ -83,3 +83,26 @@ Los parámetros empleados son:
 Por conflictos con la suscripción de Azure se realizará el despliegue en Heroku.
 
 ## Desplegar contenedor en Heroku
+
+Para el despliegue en Heroku se ha creado el fichero ```heroku.yml``` a partir de la información encontrada en la [web de Heroku](https://devcenter.heroku.com/categories/deploying-with-docker).
+
+```
+build:
+  docker:
+    release:
+       dockerfile: Dockerfile
+       target: builder
+    web: Dockerfile
+    worker: worker/Dockerfile
+```
+
+En el fichero ```heroku.yml``` se especifica que solo se usa la salida de la etapa ```build``` como la imagen de lanzamiento.
+
+- build: Especifica el ```Dockerfile``` para construir.
+
+Para desplegar el Docker se deberá colocar la pila de la aplicación en contenedor y subirla a Heroku.
+
+```
+$ heroku stack:set container
+$ git push heroku master
+```
