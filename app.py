@@ -205,6 +205,15 @@ def about():
     respons.status_code = 201
     return respons
 
+@app.route('/status')
+def status():
+    respons = {}
+    respons['status'] = 'OK'
+    respons['ruta'] = '/status'
+    respons = jsonify(respons)
+    respons.status_code = 201
+    return respons
+
 @app.route('/analize/<post_id>', methods=['GET', 'POST'])
 def form(post_id):
     resultado = analizar(post_id)
