@@ -67,3 +67,15 @@
 - [x] Entender el concepto de infraestructura definida por software.
 - [ ] Resolver los problemas con Vagrant para diferentes proveedores de nube.
 - [ ] Probar diferentes proveedores de nube y ver las posibilidades que ofrecen.
+
+#Hito 6
+
+- [x] Entender el papel de los contenedores en la infraestructura virtual.
+- [x] Comprender los procesos de definición de contenedores.
+- [ ] Análisis post-mortem del último hito.
+- [x] Alta en Docker Hub si no se ha hecho ya, así como instalación de las herramientas de Docker.
+- [x] Conocer sistemas operativos específicos de uso en contenedores.
+- [x] Repaso y dudas sobre el último hito de la práctica.
+- [ ] Entender los mecanismos de coordinación de contenedores.
+- [ ] Trabajar con CoreOS.
+- [ ] Entender ´etcd´ y los mecanismos de coordinación y configuración distribuida.
