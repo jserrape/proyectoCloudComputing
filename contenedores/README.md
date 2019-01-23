@@ -43,7 +43,7 @@ $ sudo apt-get update
 $ sudo apt-get install docker-ce
 ```
 
-Para comprobar que se ha instalado correctamente se ejecutará la imagen ```hello-world````:
+Para comprobar que se ha instalado correctamente se ejecutará la imagen ```hello-world```:
 ![img](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/pruebaDocker.png)
 
 
@@ -119,4 +119,54 @@ $ heroku stack:set container
 $ git push heroku master
 ```
 
+![img](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/heroku-docker1.png)
+![img](https://github.com/xenahort/proyectoCloudComputing/blob/master/img/heroku-docker2.png)
+
 ## Fichero Dockerfile
+
+El fichero Dockerfile está compuesto de las siguientes [instrucciones](https://docs.docker.com/engine/reference/builder/):
+
+- La instrucción ```FROM``` especifica la imagen base a partir de la cual se está construyendo. Se ha seleccionado Alpine Linux ya que es mucho más pequeño que la mayoría de las imágenes de la base de distribución (~ 5MB), y por lo tanto conduce a imágenes mucho más delgadas en general. [Fuente](https://hub.docker.com/_/python/)
+
+```
+FROM python:3.6-alpine
+```
+
+- La instrucción ```MAINTAINER``` establece el campo ```Autor``` de la imagen generada.
+
+```
+MAINTAINER Juan Carlos Serrano Pérez <juan.carlos.wow.95@gmail.com>
+```
+
+- La instrucción ```WORKDIR``` establece el directorio de trabajo para las instrucciones ```RUN```, ```CMD```, ```ENTRYPOINT```, ```COPY``` y ```ADD``` que lo siguen en el ```Dockerfile```.
+
+```
+WORKDIR /app/docker
+```
+
+- La instrucción ```COPY``` copia los archivos o directorios nuevos desde ```<src>``` y los agrega al sistema de archivos del contenedor en la ruta ```<dest>```.
+
+```
+COPY . .
+```
+
+- La instrucción ```RUN``` ejecutará cualquier comando en una nueva capa encima de la imagen actual y confirmará los resultados. La imagen confirmada resultante se utilizará para el siguiente paso en el ```Dockerfile```.
+
+```
+RUN pip install -r requirements.txt && \
+    python -m nltk.downloader punkt && \
+    python -m nltk.downloader stopwords && \
+    python -m nltk.downloader maxent_treebank_pos_tagger
+```
+
+- La instrucción ```EXPOSE``` informa a Docker que el contenedor escucha en los puertos de red especificados en el tiempo de ejecución.
+
+```
+EXPOSE 80
+```
+
+- La instrucción ```CMD``` su objetivo es proporcionar valores predeterminados para un contenedor en ejecución, como puede ser un ejecutable.
+
+```
+CMD ["python", "app.py"]
+```
