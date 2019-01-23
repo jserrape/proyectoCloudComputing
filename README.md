@@ -213,3 +213,9 @@ Net I/O: 0.4 KB/s (0.0*10^6 bps)
 ```
 
 Así pues, con un total de 20 conexiones  el 'Reply rate' medio es de 1.0 replies/s y el 'Connection time' medio es de 124.5 ms.
+
+## Docker
+
+```
+Contenedor: http://proyectocloudcomputing.azurewebsites.net
+```
